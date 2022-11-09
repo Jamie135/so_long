@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 00:20:50 by pbureera         ###   ########.fr       */
+/*   Created: 2022/11/10 00:53:54 by pbureera          #+#    #+#             */
+/*   Updated: 2022/11/10 00:53:54 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argc, char **argv)
+int	check_ber(char *path)
 {
-	t_data	data;
+	size_t	len;
+	int		fd;
 
-	if (argc != 2)
-		return (0);
-	if (check_extension(argv[1]) == FAILURE)
-		message_error(ERROR_BER, &data);
-	create_map(argv[1], &data);
-	set_map(&data);
-	check_map(&data);
+	len = ft_strlen(path);
+	if (open(path, O_DIRECTORY) >= 0)
+	{
+		fd = open(path, O_DIRECTORY);
+		close(fd);
+		return (FAILURE);
+	}
+	else
+	{
+		fd = open(path, O_RDONLY);
+		close(fd);
+		if ((path[len - 4] != '.' && path[len - 3] != 'b'
+				&& path[len - 2] != 'e'
+				&& path[len - 1] != 'r') || fd < 0)
+			return (FAILURE);
+		else
+			return (SUCCESS);
+	}
 }

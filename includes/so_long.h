@@ -36,6 +36,24 @@
 # define GREEN_PIXEL 0xFF00
 # define WHITE_PIXEL 0xFFFFFF
 
+# define ARROW_UP 65362
+# define ARROW_DOWN 65364
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+
+# define A 97
+# define D 100
+# define S 115
+# define W 119
+
+# define ERROR_BER "Argument is not a correct .ber file.\n"
+# define ERROR_OTHER "At least one character of the map is not valid.\n"
+# define ERROR_CHAR "One of the characters \"0, 1, P, C, E\" is missing.\n"
+# define ERROR_PLAYER "This is a solo campaign...\n"
+# define ERROR_PLAYERB "There can be only one player on each side...\n"
+# define ERROR_REC "The map is not a rectangle.\n"
+# define ERROR_EDGES "The edges of the map are invalid (must be walls -1-)\n"
+
 typedef struct s_map
 {
 	int		fd;
@@ -98,5 +116,8 @@ void	input_map(int row, int col, int i, t_data *data);
 void	create_map(t_data *data, char *path);
 void	set_map(t_data *data);
 void	set_player(t_data *data);
+
+void	message_error(char *str, t_data *data);
+int		check_ber(char *path);
 
 #endif
