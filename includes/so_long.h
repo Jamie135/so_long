@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
+# include "../libft/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
@@ -23,10 +24,44 @@
 # include <X11/X.h>
 # include <fcntl.h>
 
+# define ERROR -1
+# define FAILURE 1
+# define SUCCESS 0
+
+# define IMG_SIZE 48
+# define WINDOW_WIDTH 600
+# define WINDOW_HEIGHT 300
+
+# define RED_PIXEL 0xFF0000
+# define GREEN_PIXEL 0xFF00
+# define WHITE_PIXEL 0xFFFFFF
+
+typedef struct s_map
+{
+	int		fd;
+	int		line_count;
+	size_t	line_len;
+	int		count_p;
+	int		count_e;
+	int		count_c;
+	char	*path;
+	char	**map;
+	int		can_exit;
+	int		collected;
+
+}	t_map;
+
 typedef struct s_img
 {
 	void	*mlx_img;
 	char	*addr;
+	int		height;
+	int		width;
+	void	*wall;
+	void	*exit_1;
+	void	*ground;
+	void	*player;
+	void	*item;
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
@@ -36,7 +71,15 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		steps;
+	int		i;
+	int		j;
+	int		player_i;
+	int		player_j;
+	int		win_height;
+	int		win_width;
 	t_img	img;
+	t_map	map;
 	int		cur_img;
 }	t_data;
 
@@ -48,5 +91,12 @@ typedef struct s_rect
 	int height;
 	int color;
 }	t_rect;
+
+void	free_tabs(char **tab);
+int		get_row(char *path);
+void	input_map(int row, int col, int i, t_data *data);
+void	create_map(t_data *data, char *path);
+void	set_map(t_data *data);
+void	set_player(t_data *data);
 
 #endif
