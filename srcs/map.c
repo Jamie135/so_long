@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/09 21:10:53 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:16:18 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	free_tabs(char **tab)
 
 int	get_row(char *path)
 {
-	int		fd;
 	int		row_count;
+	int		fd;
 	char	*row;
 
+	row_count = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		printf("Error: open failed\n");
-	row_count = 0;
 	else
 	{
 		row = get_next_line(fd);
@@ -61,16 +61,16 @@ void	input_map(int row, int col, int i, t_data *data)
 {
 	char	*line;
 
-	line = get_next_line(data->map.fd)
+	line = get_next_line(data->map.fd);
 	while (line != NULL)
 	{
 		data->map.map[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (!data->map.map[row])
 			return (free_tabs(data->map.map));
 		while (line[i] != '\0')
-			data->map.map[row][column++] = line[i++];
-		data->map.map[row++][column] = '\0';
-		column = 0;
+			data->map.map[row][col++] = line[i++];
+		data->map.map[row++][col] = '\0';
+		col = 0;
 		i = 0;
 		free(line);
 		line = get_next_line(data->map.fd);
@@ -91,7 +91,7 @@ void	create_map(t_data *data, char *path)
 	data->map.path = path;
 	data->map.map = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	if (!(data->map.map))
-		return;
+		return ;
 	data->map.fd = open(path, O_RDONLY);
 	if (data->map.fd < 0)
 		printf("Error: open failed\n");

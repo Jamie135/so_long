@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:43:25 by pbureera         ###   ########.fr       */
+/*   Created: 2022/11/10 17:11:09 by pbureera          #+#    #+#             */
+/*   Updated: 2022/11/10 17:14:52 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argc, char **argv)
+int	handle_keypress(int keysym, t_data *data)
 {
-	t_data	data;
-
-	if (argc != 2)
-		return (0);
-	if (check_extension(argv[1]) == FAILURE)
-		message_error(ERROR_BER, &data);
-	create_map(argv[1], &data);
-	set_map(&data);
-	check_map(&data);
-	set_player(&data);
+	if (keysym == XK_Escape)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
+	}
+	else if (ft_strchr("wasd", keysym))
+		move_player(data, keysym);
+	return (0);
 }

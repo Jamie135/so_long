@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/08 17:12:55 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:50:49 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
-# include <fcntl.h>
+
+# ifndef O_DIRECTORY
+#  define O_DIRECTORY 00200000
+# endif
 
 # define ERROR -1
 # define FAILURE 1
@@ -49,10 +55,10 @@
 # define ERROR_BER "Argument is not a correct .ber file.\n"
 # define ERROR_OTHER "At least one character of the map is not valid.\n"
 # define ERROR_CHAR "One of the characters \"0, 1, P, C, E\" is missing.\n"
-# define ERROR_PLAYER "This is a solo campaign...\n"
-# define ERROR_PLAYERB "There can be only one player on each side...\n"
+# define ERROR_PLAYER "There must be one player.\n"
+# define ERROR_PLAYERB "There can be only one player on each side.\n"
 # define ERROR_REC "The map is not a rectangle.\n"
-# define ERROR_EDGES "The edges of the map are invalid (must be walls -1-)\n"
+# define ERROR_SIDES "The edges of the map are invalid (must be walls -1-)\n"
 
 typedef struct s_map
 {
@@ -76,7 +82,7 @@ typedef struct s_img
 	int		height;
 	int		width;
 	void	*wall;
-	void	*exit_1;
+	void	*exit_l;
 	void	*ground;
 	void	*player;
 	void	*item;
@@ -117,7 +123,13 @@ void	create_map(t_data *data, char *path);
 void	set_map(t_data *data);
 void	set_player(t_data *data);
 
-void	message_error(char *str, t_data *data);
+int		check_pec(t_data *data);
+int		check_topbot(int row, char **map);
+int		check_sides(int row_count, char **map);
+int		check_rectangle(t_data *data);
+int		check_map(t_data *data);
+
 int		check_ber(char *path);
+void	message_error(char *str, t_data *data);
 
 #endif
