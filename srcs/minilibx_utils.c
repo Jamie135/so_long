@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-int	init_window(t_data *data)
+int	new_window(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
@@ -27,7 +27,7 @@ int	init_window(t_data *data)
 	return (SUCCESS);
 }
 
-void	init_images(t_data *data)
+void	file_to_images(t_data *data)
 {
 	data->img.ground = mlx_xpm_file_to_image(data->mlx_ptr, GROUND,
 			&data->img.width, &data->img.height);
@@ -46,7 +46,7 @@ void	loop_images(t_data data)
 	mlx_loop_hook(data.mlx_ptr, &render, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data);
 	mlx_hook(data.win_ptr, ClientMessage, LeaveWindowMask,
-		&handle_btnrealease, &data);
+		&handle_keyrealease, &data);
 	mlx_loop(data.mlx_ptr);
 }
 

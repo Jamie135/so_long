@@ -12,27 +12,6 @@
 
 #include "../includes/so_long.h"
 
-void	free_tabs(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	if (tab)
-	{
-		while (tab[i])
-		{
-			if (tab[i])
-			{
-				free(tab[i]);
-				tab[i] = NULL;
-			}
-			i++;
-		}
-		free(tab);
-		tab = NULL;
-	}
-}
-
 int	get_row(char *path)
 {
 	int		row_count;

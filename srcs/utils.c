@@ -48,3 +48,24 @@ void	message_error(char *str, t_data *data)
 	write (2, "\n", 1);
 	exit(1);
 }
+
+void	free_tabs(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	if (tab)
+	{
+		while (tab[i])
+		{
+			if (tab[i])
+			{
+				free(tab[i]);
+				tab[i] = NULL;
+			}
+			i++;
+		}
+		free(tab);
+		tab = NULL;
+	}
+}

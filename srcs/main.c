@@ -24,4 +24,12 @@ int	main(int argc, char **argv)
 	set_map(&data);
 	check_map(&data);
 	set_player(&data);
+	new_window(&data);
+	file_to_images(&data);
+	render(&data);
+	loop_images(data);
+	destroy_images(data);
+	free(data.mlx_ptr);
+	if (data.map.map)
+		free_tabs(data.map.map);
 }

@@ -116,20 +116,39 @@ typedef struct s_rect
 	int color;
 }	t_rect;
 
-void	free_tabs(char **tab);
+//	map.c
 int		get_row(char *path);
 void	input_map(int row, int col, int i, t_data *data);
 void	create_map(t_data *data, char *path);
+//	map_setup.c
 void	set_map(t_data *data);
 void	set_player(t_data *data);
-
+//	map_check.c
 int		check_pec(t_data *data);
 int		check_topbot(int row, char **map);
 int		check_sides(int row_count, char **map);
 int		check_rectangle(t_data *data);
 int		check_map(t_data *data);
-
+//	minilibx_utils.c
+int		new_window(t_data *data);
+void	file_to_images(t_data *data);
+void	loop_images(t_data data);
+void	destroy_images(t_data data);
+//	events.c
+int		handle_resize(t_data *data);
+int		handle_keypress(int keysym, t_data *data);
+int		handle_keyrealease(t_data *data);
+//	render.c
+void	parse_char(t_data *data, int width, int i, int j);
+int		render(t_data *data);
+//	moves.c
+int		next_direction(t_data *data, char direction, char key);
+void	is_item(t_data *data, char direction);
+void	move_message(t_data *data);
+int		winner(t_data *data);
+//	utils.c
 int		check_ber(char *path);
 void	message_error(char *str, t_data *data);
+void	free_tabs(char **tab);
 
 #endif
