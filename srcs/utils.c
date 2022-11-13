@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:48:18 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:14:46 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:17:35 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	message_error(char *str, t_data *data)
 	if (data->map.map)
 		free_tabs(data->map.map);
 	ft_putstr_fd("Error: ", 2);
-	ft_putstr_fd(str, 2);
-	write (2, "\n", 1);
+	ft_putendl_fd(str, 2);
 	exit(1);
 }
 

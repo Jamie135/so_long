@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:43 by pbureera          #+#    #+#             */
-/*   Updated: 2022/07/14 14:53:41 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:06:26 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 #  define BUFFER_SIZE 50
 # endif
 
-size_t			ft_strlen(char *str);
-char			*ft_strchr(char *s, int c);
-char			*ft_strjoin(char *s1, char *s2);
+size_t			ft_strlen(const char *s);
+char			*ft_strchr(const char *s, int c);
+char			*ft_strjoin(char const *s1, char const *s2);
 char			*get_next_line(int fd);
 char			*get_read_to_stash(int fd, char *stash);
 char			*get_line(char *stash);

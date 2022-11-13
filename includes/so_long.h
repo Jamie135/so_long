@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:50:49 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:01:51 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,21 @@
 # define S 115
 # define W 119
 
-# define ERROR_BER "Argument is not a correct .ber file.\n"
-# define ERROR_OTHER "At least one character of the map is not valid.\n"
-# define ERROR_CHAR "One of the characters \"0, 1, P, C, E\" is missing.\n"
-# define ERROR_PLAYER "There must be one player.\n"
-# define ERROR_PLAYERB "There can be only one player on each side.\n"
-# define ERROR_REC "The map is not a rectangle.\n"
-# define ERROR_SIDES "The edges of the map are invalid (must be walls -1-)\n"
+# define TITLE "Wae Return"
+# define PLAYER "../images/player.xpm"
+# define EXIT "../images/exit.xpm"
+# define TREES "../images/tree.xpm"
+# define GRASS "../images/grass.xpm"
+# define ITEM "../images/item.xpm"
+
+# define ERROR_BER "Argument is not a correct .ber file."
+# define ERROR_OTHER "At least one character of the map is not valid."
+# define ERROR_CHAR "One of the characters \"0, 1, P, C, E\" is missing."
+# define ERROR_PLAYER "There must be one player."
+# define ERROR_PLAYERB "There can be only one player on each side."
+# define ERROR_REC "The map is not a rectangle."
+# define ERROR_SIDES "The edges of the map are invalid (must be walls -1-)."
+# define ERROR_INFILE "Open failed."
 
 typedef struct s_map
 {
@@ -82,11 +90,11 @@ typedef struct s_img
 	int		height;
 	int		width;
 	void	*wall;
-	void	*exit_l;
+	void	*exit_way;
 	void	*ground;
 	void	*player;
 	void	*item;
-	int		bpp; /* bits per pixel */
+	int		bpp;
 	int		line_len;
 	int		endian;
 }	t_img;
@@ -111,9 +119,9 @@ typedef struct s_rect
 {
 	int	x;
 	int	y;
-	int width;
-	int height;
-	int color;
+	int	width;
+	int	height;
+	int	color;
 }	t_rect;
 
 //	map.c

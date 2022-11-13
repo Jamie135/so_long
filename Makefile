@@ -6,64 +6,54 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/08 17:02:31 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/13 17:22:10 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 
+SRCS_DIR	=	./srcs/
+SRCS		=	main.c \
+				map.c \
+				map_setup.c \
+				map_check.c \
+				minilibx_utils.c \
+				events.c \
+				render.c \
+				moves.c \
+				utils.c					
+OBJS		=	$(addprefix $(SRCS_DIR), $(SRC:.c=.o))
+
+LIBFT_DIR	=	libft
+LIBFT_MAKE	= 	Makefile
+LIBFT_PATH	=	$(LIBFT_DIR)/libft.a
+
+MLX_DIR		=	minilibx-linux
+MLX_MAKE	=	Makefile
+MLX_PATH	=	$(MLX_DIR)/libmlx.a
+
 CC			=	clang
+C_FLAGS		=	-Wall -Wextra -Werror -g
+I_FLAGS		=	-I ./includes
+LIBFT_FLAGS	=	-L $(LIBFT_DIR) -lft
+MLX_FLAGS	=	-ldl -lmlx -L$(MLX_DIR) -lm -lXext -Imlx $(MLX_PATH)
 
-FLAG		=	-Wall -Wextra -Werror
-
-LIBFT_PATH	=	./libft/
-
-LIBFT_FILE	=	libft.a
-
-MLX_FILE	=	libmlx.a
-
-LIBFT_LIB	=	$(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
-
-MLX_FLAG	=	-lX11 -lXext
-
-MLX_PATH	=	./minilibx-linux/
-
-MLX_LIB		=	$(addprefix $(MLX_PATH), $(MLX_FILE))
-
-MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
-
-C_FILE		=	main.c \
-
-SRC_DIR		=	./srcs/
-
-INC_DIR		=	./includes/
-
-SRC			=	$(addprefix $(SRC_DIR),$(C_FILE))
-
-OBJ			=	$(SRC:.c=.o)
-
-.c.o:
-	$(CC) $(FLAG) -c $< -o $@
+RM = rm -f
 
 all: $(NAME)
 
-lib:
-	@make -C $(LIBFT_PATH)
-
-mlx:
-	@make -sC $(MLX_PATH)
-
-$(NAME): lib mlx $(OBJ)
-	$(CC) $(OBJ) $(LIBFT_LIB) $(MLX_EX) -o $(NAME)
+$(NAME): $(OBJS)
+	@make -C $(MLX_DIR)
+	@cd $(LIBFT_DIR) && $(MAKE)
+	@$(CC) $(C_FLAGS) $(OBJS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(MLX_FLAGS)
 
 clean:
-	@make clean -sC $(MLX_PATH)
-	@make clean -sC $(LIBFT_PATH)
-	@rm -f $(OBJ)
+	@$(RM) $(OBJS)
+	@$(RM) -r $(OBJ_DIR)
+	@make -C $(LIBFT_DIR) -f $(LIBFT_MAKE) clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@make fclean -C $(LIBFT_PATH)
+	@$(RM) $(OBJS) $(NAME)
 
 re: fclean all
 

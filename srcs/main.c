@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:43:25 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:11:00 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
-	if (check_extension(argv[1]) == FAILURE)
+	if (check_ber(argv[1]) == FAILURE)
 		message_error(ERROR_BER, &data);
-	create_map(argv[1], &data);
+	create_map(&data, argv[1]);
 	set_map(&data);
 	check_map(&data);
 	set_player(&data);

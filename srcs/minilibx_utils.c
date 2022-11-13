@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:19 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:59:43 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:58:29 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	new_window(t_data *data)
 
 void	file_to_images(t_data *data)
 {
-	data->img.ground = mlx_xpm_file_to_image(data->mlx_ptr, GROUND,
+	data->img.ground = mlx_xpm_file_to_image(data->mlx_ptr, GRASS,
 			&data->img.width, &data->img.height);
-	data->img.exit_l = mlx_xpm_file_to_image(data->mlx_ptr, LOCKED,
+	data->img.exit_way = mlx_xpm_file_to_image(data->mlx_ptr, EXIT,
 			&data->img.width, &data->img.height);
 	data->img.player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER,
 			&data->img.width, &data->img.height);
-	data->img.wall = mlx_xpm_file_to_image(data->mlx_ptr, W_RAND,
+	data->img.wall = mlx_xpm_file_to_image(data->mlx_ptr, TREES,
 			&data->img.width, &data->img.height);
 	data->img.item = mlx_xpm_file_to_image(data->mlx_ptr, ITEM,
 			&data->img.width, &data->img.height);
@@ -55,7 +55,7 @@ void	destroy_images(t_data data)
 	mlx_destroy_image(data.mlx_ptr, data.img.wall);
 	mlx_destroy_image(data.mlx_ptr, data.img.ground);
 	mlx_destroy_image(data.mlx_ptr, data.img.player);
-	mlx_destroy_image(data.mlx_ptr, data.img.exit_l);
+	mlx_destroy_image(data.mlx_ptr, data.img.exit_way);
 	mlx_destroy_image(data.mlx_ptr, data.img.item);
 	mlx_destroy_display(data.mlx_ptr);
 }

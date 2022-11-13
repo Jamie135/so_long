@@ -6,13 +6,13 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:18:30 by pbureera          #+#    #+#             */
-/*   Updated: 2022/07/14 14:31:52 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:09:22 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	a;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *str)
 	return (a);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -42,30 +42,30 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char	*tab;
+	int		i;
+	int		j;
 
-	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char) * 1);
-		s1[0] = '\0';
-	}
+	i = 0;
+	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
+	tab = (char *)malloc(sizeof(*tab) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (tab == 0)
 		return (NULL);
-	i = -1;
-	j = 0;
-	if (s1)
-		while (s1[++i] != '\0')
-			str[i] = s1[i];
-	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
-	return (str);
+	while (s1[i])
+	{
+		tab[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		tab[i] = s2[j];
+		j++;
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }
