@@ -6,7 +6,7 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/14 17:49:55 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/14 18:24:04 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(MLX_DIR)
 	@cd $(LIBFT_DIR) && $(MAKE)
-	@$(CC) $(C_FLAGS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
+	@$(CC) $(C_FLAGS) $(OBJS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(MLX_FLAGS)
 
 clean:
 	@$(RM) $(OBJS)
