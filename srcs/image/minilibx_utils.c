@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:44:19 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 15:58:29 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:21:25 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 int	new_window(t_data *data)
 {

@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 19:25:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 16:12:31 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:18:54 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	parse_char(t_data *data, int width, int i, int j)
 {

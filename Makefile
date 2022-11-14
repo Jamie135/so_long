@@ -6,22 +6,21 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/13 17:22:10 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/14 16:23:06 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 
 SRCS_DIR	=	./srcs/
-SRCS		=	main.c \
-				map.c \
-				map_setup.c \
-				map_check.c \
-				minilibx_utils.c \
-				events.c \
-				render.c \
-				moves.c \
-				utils.c					
+SRCS		=	map/map.c \
+				map/map_setup.c \
+				map/map_check.c \
+				map/utils.c \
+				image/minilibx_utils.c \
+				image/render.c \
+				event/handler.c \
+				event/moves.c
 OBJS		=	$(addprefix $(SRCS_DIR), $(SRC:.c=.o))
 
 LIBFT_DIR	=	libft
@@ -45,7 +44,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(MLX_DIR)
 	@cd $(LIBFT_DIR) && $(MAKE)
-	@$(CC) $(C_FLAGS) $(OBJS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(MLX_FLAGS)
+	@$(CC) $(C_FLAGS) $(OBJS) $(SRCS_DIR)main.c $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(MLX_FLAGS)
 
 clean:
 	@$(RM) $(OBJS)

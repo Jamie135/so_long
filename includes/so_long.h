@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 16:01:51 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:21:07 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int		new_window(t_data *data);
 void	file_to_images(t_data *data);
 void	loop_images(t_data data);
 void	destroy_images(t_data data);
-//	events.c
+//	handler.c
 int		handle_resize(t_data *data);
 int		handle_keypress(int keysym, t_data *data);
 int		handle_keyrealease(t_data *data);

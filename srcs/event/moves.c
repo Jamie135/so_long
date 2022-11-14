@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:18:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 16:10:42 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:19:18 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 int	next_direction(t_data *data, char direction, char key)
 {

@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:48:18 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 14:17:35 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:22:27 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 int	check_ber(char *path)
 {

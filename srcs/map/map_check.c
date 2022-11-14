@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:53:54 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/10 16:15:15 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:18:40 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 int	check_pec(t_data *data)
 {

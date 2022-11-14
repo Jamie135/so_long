@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:34:16 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/09 23:34:16 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:22:07 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	set_map(t_data *data)
 {
