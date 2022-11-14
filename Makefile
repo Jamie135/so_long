@@ -6,7 +6,7 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/14 17:30:16 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/14 17:49:55 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS		=	map/map.c \
 				image/minilibx_utils.c \
 				image/render.c \
 				event/handler.c \
-				event/moves.c
+				event/moves.c \
+				main.c
 OBJS		=	$(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
 LIBFT_DIR	=	libft
@@ -44,7 +45,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(MLX_DIR)
 	@cd $(LIBFT_DIR) && $(MAKE)
-	@$(CC) $(C_FLAGS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(OBJS) $(SRCS_DIR)main.c $(MLX_FLAGS)
+	@$(CC) $(C_FLAGS) $(I_FLAGS) $(LIBFT_FLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 clean:
 	@$(RM) $(OBJS)
