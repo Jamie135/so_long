@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:48:18 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 16:22:27 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:33:35 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int	check_ber(char *path)
 	len = ft_strlen(path);
 	if (len < 4)
 		return (FAILURE);
-	if (open(path, O_DIRECTORY || __O_NOFOLLOW) >= 0)
+	if (open(path, O_DIRECTORY) >= 0)
 	{
-		fd = open(path, O_DIRECTORY || __O_NOFOLLOW);
+		fd = open(path, O_DIRECTORY);
 		close(fd);
 		return (FAILURE);
 	}
 	else
 	{
-		fd = open(path, O_RDONLY || __O_NOFOLLOW);
+		fd = open(path, O_RDONLY);
 		close(fd);
 		if ((path[len - 4] != '.' && path[len - 3] != 'b'
 				&& path[len - 2] != 'e'

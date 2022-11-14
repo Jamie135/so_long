@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 16:21:07 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/14 17:35:54 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ int		next_direction(t_data *data, char direction, char key);
 void	is_item(t_data *data, char direction);
 void	move_message(t_data *data);
 int		winner(t_data *data);
+void	move_player(t_data *data, char direction);
 //	utils.c
 int		check_ber(char *path);
 void	message_error(char *str, t_data *data);
