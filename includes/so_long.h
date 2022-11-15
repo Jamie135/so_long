@@ -6,15 +6,15 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:35:54 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:28:16 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "get_next_line.h"
 # include "../libft/libft.h"
-# include "../libft/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>

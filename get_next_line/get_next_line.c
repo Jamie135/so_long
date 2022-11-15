@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 14:49:13 by pbureera          #+#    #+#             */
-/*   Updated: 2022/07/14 13:59:01 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:17:36 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 char	*get_stash(char *stash)
 {

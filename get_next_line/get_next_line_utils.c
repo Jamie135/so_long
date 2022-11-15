@@ -6,11 +6,11 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:18:30 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 17:09:22 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:17:59 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {
