@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 14:46:02 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:59:58 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	input_map(int row, int col, int i, t_data *data)
 	{
 		data->map.map[row] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 		if (!data->map.map[row])
-			return (free_tabs(data->map.map));
+		{
+			free_tabs(data->map.map);
+			return ;
+		}
 		while (line[i] != '\0')
 			data->map.map[row][col++] = line[i++];
 		data->map.map[row++][col] = '\0';
