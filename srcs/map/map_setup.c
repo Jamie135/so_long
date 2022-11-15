@@ -6,11 +6,12 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 23:34:16 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:15:18 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:17:52 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+#include "../../includes/get_next_line.h"
 
 void	set_map(t_data *data)
 {
@@ -23,7 +24,7 @@ void	set_map(t_data *data)
 	data->map.can_exit = 0;
 	data->steps = 0;
 	data->win_height = data->map.line_count * IMG_SIZE;
-	data->win_width = ft_strlen(data->map.map[0] - 1) * IMG_SIZE;
+	data->win_width = (ft_strlen(data->map.map[0]) - 1) * IMG_SIZE;
 	data->img.height = IMG_SIZE;
 	data->img.width = IMG_SIZE;
 }

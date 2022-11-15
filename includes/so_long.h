@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 14:28:16 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:07:21 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@
 # define S 115
 # define W 119
 
-# define TITLE "Wae Return"
+# define TITLE "Way Home"
 # define PLAYER "../images/player.xpm"
 # define EXIT "../images/exit.xpm"
 # define TREES "../images/tree.xpm"
 # define GRASS "../images/grass.xpm"
 # define ITEM "../images/item.xpm"
 
-# define ERROR_BER "Argument is not a correct .ber file."
-# define ERROR_OTHER "At least one character of the map is not valid."
-# define ERROR_CHAR "One of the characters \"0, 1, P, C, E\" is missing."
+# define ERROR_BER "Invalid .ber file."
+# define ERROR_OTHER "Invalid characters on the map."
+# define ERROR_CHAR "Some characters are missing: 0, 1, P, E, C."
 # define ERROR_PLAYER "There must be one player."
-# define ERROR_PLAYERB "There can be only one player on each side."
+# define ERROR_PLAYERB "There must be only one player on each side."
 # define ERROR_REC "The map is not a rectangle."
-# define ERROR_SIDES "The edges of the map are invalid (must be walls -1-)."
+# define ERROR_SIDES "Invalid walls on the map."
 # define ERROR_INFILE "Open failed."
 
 typedef struct s_map
@@ -86,17 +86,14 @@ typedef struct s_map
 typedef struct s_img
 {
 	void	*mlx_img;
-	char	*addr;
 	int		height;
 	int		width;
 	void	*wall;
 	void	*exit_way;
 	void	*ground;
 	void	*player;
-	void	*item;
-	int		bpp;
 	int		line_len;
-	int		endian;
+	void	*item;
 }	t_img;
 
 typedef struct s_data
@@ -112,17 +109,7 @@ typedef struct s_data
 	int		win_width;
 	t_img	img;
 	t_map	map;
-	int		cur_img;
 }	t_data;
-
-typedef struct s_rect
-{
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rect;
 
 //	map.c
 int		get_row(char *path);
@@ -157,7 +144,7 @@ int		winner(t_data *data);
 void	move_player(t_data *data, char direction);
 //	utils.c
 int		check_ber(char *path);
-void	message_error(char *str, t_data *data);
 void	free_tabs(char **tab);
+void	message_error(char *str, t_data *data);
 
 #endif

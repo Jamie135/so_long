@@ -6,11 +6,12 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:53:54 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:32:18 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:02:44 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+#include "../../includes/get_next_line.h"
 
 int	check_pec(t_data *data)
 {
@@ -29,7 +30,8 @@ int	check_pec(t_data *data)
 		data->j = 0;
 		data->i++;
 	}
-	if (!data->map.count_p || !data->map.count_e || !data->map.count_c)
+	//write (2, "check_pec\n", 10);
+	if (!data->map.count_c || !data->map.count_e || !data->map.count_p)
 		return (FAILURE);
 	else
 		return (SUCCESS);
@@ -104,8 +106,10 @@ int	check_map(t_data *data)
 		j = 0;
 		i++;
 	}
+	//write(2, "check_map\n", 10);
 	if (check_pec(data) == FAILURE)
 		message_error(ERROR_CHAR, data);
+	//write(2, "check_map\n", 10);
 	if (data->map.count_p != 1)
 		message_error(ERROR_PLAYER, data);
 	if (check_rectangle(data) == FAILURE)

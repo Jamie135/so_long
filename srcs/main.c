@@ -6,11 +6,12 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:15:33 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:43:25 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../includes/get_next_line.h"
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +23,9 @@ int	main(int argc, char **argv)
 		message_error(ERROR_BER, &data);
 	create_map(&data, argv[1]);
 	set_map(&data);
+	//write (2, "main\n", 5);
 	check_map(&data);
+	//write (2, "main\n", 5);
 	set_player(&data);
 	new_window(&data);
 	file_to_images(&data);

@@ -6,11 +6,12 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:15:22 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:46:02 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+#include "../../includes/get_next_line.h"
 
 int	get_row(char *path)
 {
