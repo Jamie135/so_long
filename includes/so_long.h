@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 14:59:40 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:56:32 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@
 # define W 119
 
 # define TITLE "Way Home"
-# define PLAYER "../images/player.xpm"
-# define EXIT "../images/exit.xpm"
-# define TREES "../images/tree.xpm"
-# define GRASS "../images/grass.xpm"
-# define ITEM "../images/item.xpm"
+# define PLAYER "images/set1/player.xpm"
+# define EXIT "images/set1/exit.xpm"
+# define TREES "images/set1/tree.xpm"
+# define GRASS "images/set1/grass.xpm"
+# define ITEM "images/set1/item.xpm"
 
 # define ERROR_BER "Invalid .ber file."
 # define ERROR_OTHER "Invalid characters on the map."

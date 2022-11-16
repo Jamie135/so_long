@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 17:18:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/14 17:14:51 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:03:45 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void	is_item(t_data *data, char direction)
 
 void	move_message(t_data *data)
 {
-	printf("Moves counter: %d\n", data->steps);
+	ft_putstr_fd("\E[H\E[2J", 1);
+	ft_putstr_fd("Moves counter: ", 2);
+	ft_putnbr_fd(data->steps, 2);
+	write(1, "\n", 2);
 }
 
 int	winner(t_data *data)

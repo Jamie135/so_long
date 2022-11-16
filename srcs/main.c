@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 15:24:01 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:52:12 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/get_next_line.h"
 
 
-void print_map(char **map)
+/*void print_map(char **map)
 {
 	int i = 0;
 
@@ -29,7 +29,7 @@ void print_map(char **map)
 		i++;
 	}
 	printf("\n");
-}
+}*/
 
 int	main(int argc, char **argv)
 {
@@ -43,12 +43,12 @@ int	main(int argc, char **argv)
 	set_map(&data);
 	check_map(&data);
 	set_player(&data);
-	print_map(data.map.map);
+	//print_map(data.map.map);
 	new_window(&data);
 	file_to_images(&data);
-	write (2, "main\n", 5);
+	//write (2, "main\n", 5);
 	render(&data);
-	write (2, "main\n", 5);
+	//write (2, "main\n", 5);
 	loop_images(data);
 	destroy_images(data);
 	free(data.mlx_ptr);
