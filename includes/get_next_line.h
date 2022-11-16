@@ -6,26 +6,27 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:21:43 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/13 17:06:26 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:13:09 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 50
-# endif
-
-size_t			ft_strlen(const char *s);
-char			*ft_strchr(const char *s, int c);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*get_next_line(int fd);
-char			*get_read_to_stash(int fd, char *stash);
-char			*get_line(char *stash);
-char			*get_stash(char *stash);
+char	*f_strchr(char *s, int c);
+char	*f_strjoin(char *s1, char *s2);
+char	*f_strdup(char *s1);
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *str);
 
 #endif

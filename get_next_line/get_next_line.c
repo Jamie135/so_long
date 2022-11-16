@@ -6,101 +6,102 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 14:49:13 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 14:17:36 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:16:00 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 
-char	*get_stash(char *stash)
+int	ft_malloc_count(char *stock)
 {
-	char	*s;
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	if (f_strchr(stock, '\n') == NULL)
+		return (ft_strlen(stock));
+	while (stock[i] != '\n' && stock[i] != '\0')
 		i++;
-	if (!stash[i])
+	return (i + 1);
+}
+
+char	*ft_get_the_line(char *stock)
+{
+	char	*line;
+	int		i;
+	int		len;
+
+	line = NULL;
+	len = ft_malloc_count(stock);
+	line = (char *)malloc(sizeof(char) * (len + 1));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (stock[i] && i < len)
 	{
-		free(stash);
-		return (NULL);
+		line[i] = stock[i];
+		i++;
 	}
-	s = (char *)malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
-	if (!s)
-		return (NULL);
-	i++;
+	line[i] = '\0';
+	return (line);
+}
+
+void	ft_get_the_spare(char *buffer)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (buffer[i] != '\n')
+		i++;
+	i = i + 1;
 	j = 0;
-	while (stash[i])
-		s[j++] = stash[i++];
-	s[j] = '\0';
-	free(stash);
-	return (s);
+	while (i < BUFFER_SIZE)
+	{
+		buffer[j] = buffer[i];
+		i++;
+		j++;
+	}
+	buffer[j] = '\0';
 }
 
-char	*get_line(char *stash)
+char	*ft_line_results(int ret, char *stock, char *buffer)
 {
-	char	*s;
-	int		i;
+	char		*line;
 
-	i = 0;
-	if (!stash[i])
-		return (NULL);
-	while (stash[i] && stash[i] != '\n')
-		i++;
-	s = (char *)malloc(sizeof(char) * (i + 2));
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	line = NULL;
+	if (ft_strlen(stock) == 0)
 	{
-		s[i] = stash[i];
-		i++;
-	}
-	if (stash[i] == '\n')
-	{
-		s[i] = stash[i];
-		i++;
-	}
-	s[i] = '\0';
-	return (s);
-}
-
-char	*get_read_and_stash(int fd, char *stash)
-{
-	char	*buf;
-	int		readed;
-
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
+		free(stock);
 		return (NULL);
-	readed = 1;
-	while (!ft_strchr(stash, '\n') && readed != 0)
-	{
-		readed = read(fd, buf, BUFFER_SIZE);
-		if (readed == -1)
-		{
-			free(buf);
-			return (NULL);
-		}
-		buf[readed] = '\0';
-		stash = ft_strjoin(stash, buf);
 	}
-	free(buf);
-	return (stash);
+	line = ft_get_the_line(stock);
+	if (ret > 0)
+		ft_get_the_spare(buffer);
+	free(stock);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	*stash;
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*stock;
+	int			ret;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	stock = NULL;
+	if ((read(fd, buffer, 0) == -1) || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash = get_read_and_stash(fd, stash);
-	if (!stash)
-		return (NULL);
-	line = get_line(stash);
-	stash = get_stash(stash);
-	return (line);
+	ret = 1;
+	stock = f_strjoin(stock, buffer);
+	while (f_strchr(stock, '\n') == NULL && ret > 0)
+	{
+		ret = read(fd, buffer, BUFFER_SIZE);
+		if (ret < 0)
+		{
+			free(stock);
+			return (NULL);
+		}
+		buffer[ret] = '\0';
+		stock = f_strjoin(stock, buffer);
+	}
+	return (ft_line_results(ret, stock, buffer));
 }

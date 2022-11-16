@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 16:59:58 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:23:11 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ int	get_row(char *path)
 	return (row_count);
 }
 
-void	input_map(int row, int col, int i, t_data *data)
+void	input_map(int row, int col, t_data *data)
 {
 	char	*line;
+	int		i;
 
 	line = get_next_line(data->map.fd);
 	while (line != NULL)
@@ -50,11 +51,11 @@ void	input_map(int row, int col, int i, t_data *data)
 			free_tabs(data->map.map);
 			return ;
 		}
+		i = 0;
 		while (line[i] != '\0')
 			data->map.map[row][col++] = line[i++];
 		data->map.map[row++][col] = '\0';
 		col = 0;
-		i = 0;
 		free(line);
 		line = get_next_line(data->map.fd);
 	}
@@ -63,11 +64,9 @@ void	input_map(int row, int col, int i, t_data *data)
 
 void	create_map(t_data *data, char *path)
 {
-	int		i;
 	int		row;
 	size_t	col;
 
-	i = 0;
 	row = 0;
 	col = 0;
 	data->map.line_count = get_row(path);
@@ -80,7 +79,7 @@ void	create_map(t_data *data, char *path)
 		message_error(ERROR_INFILE, data);
 	else
 	{
-		input_map(row, col, i, data);
+		input_map(row, col, data);
 		close(data->map.fd);
 	}
 }

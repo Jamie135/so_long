@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 16:07:21 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:59:40 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ typedef struct s_data
 
 //	map.c
 int		get_row(char *path);
-void	input_map(int row, int col, int i, t_data *data);
+void	input_map(int row, int col, t_data *data);
 void	create_map(t_data *data, char *path);
 //	map_setup.c
 void	set_map(t_data *data);
