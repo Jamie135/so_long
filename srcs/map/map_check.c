@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:53:54 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 17:37:50 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:14:34 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	check_pec(t_data *data)
 		data->j = 0;
 		data->i++;
 	}
-	//write (2, "check_pec\n", 10);
 	if (!data->map.count_c || !data->map.count_e || !data->map.count_p)
 		return (FAILURE);
 	else

@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 15:23:11 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:08:38 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	create_map(t_data *data, char *path)
 	row = 0;
 	col = 0;
 	data->map.line_count = get_row(path);
+	if (data->map.line_count == 0)
+		message_error(ERROR_FAKE, data);
 	data->map.path = path;
 	data->map.map = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	if (!(data->map.map))
