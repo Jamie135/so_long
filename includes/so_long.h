@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 17:20:44 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:04:20 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@
 # define ITEM "images/set2/item.xpm"
 
 # define ERROR_BER "Invalid .ber file."
+# define ERROR_FAKE ".ber file is empty."
 # define ERROR_OTHER "Invalid characters on the map."
 # define ERROR_CHAR "Some characters are missing: 0, 1, P, E, C."
 # define ERROR_PLAYER "There must be one player."
