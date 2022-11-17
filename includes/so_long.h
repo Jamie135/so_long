@@ -52,10 +52,10 @@
 # define S 115
 # define W 119
 
-# define TITLE "Way Home"
+# define TITLE "so_long"
 # define PLAYER "images/set2/player.xpm"
 # define EXIT "images/set2/exit.xpm"
-# define TREES "images/set2/tree.xpm"
+# define ROCK "images/set2/rock.xpm"
 # define GRASS "images/set2/grass.xpm"
 # define ITEM "images/set2/item.xpm"
 

@@ -35,7 +35,7 @@ void	file_to_images(t_data *data)
 			&data->img.width, &data->img.height);
 	data->img.player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER,
 			&data->img.width, &data->img.height);
-	data->img.wall = mlx_xpm_file_to_image(data->mlx_ptr, TREES,
+	data->img.wall = mlx_xpm_file_to_image(data->mlx_ptr, ROCK,
 			&data->img.width, &data->img.height);
 	data->img.item = mlx_xpm_file_to_image(data->mlx_ptr, ITEM,
 			&data->img.width, &data->img.height);
