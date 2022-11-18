@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 18:04:20 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:22:55 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@
 # define ERROR_REC "The map is not a rectangle."
 # define ERROR_SIDES "Invalid walls on the map."
 # define ERROR_INFILE "Open failed."
+# define ERROR_PATH "Exit unreachable." 
 
 typedef struct s_map
 {
@@ -125,6 +126,7 @@ int		check_topbot(int row, char **map);
 int		check_sides(int row_count, char **map);
 int		check_rectangle(t_data *data);
 int		check_map(t_data *data);
+//	path_check.c
 //	minilibx_utils.c
 int		new_window(t_data *data);
 void	file_to_images(t_data *data);

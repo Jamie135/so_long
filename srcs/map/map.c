@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:10:53 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 18:08:38 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:03:37 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_row(char *path)
 	char	*row;
 
 	row_count = 0;
-	fd = open(path, O_RDONLY);
+	fd = open(path, O_RDONLY | O_NOFOLLOW);
 	if (fd < 0)
 		ft_putendl_fd("Error: Open failed.", 2);
 	else
@@ -76,7 +76,7 @@ void	create_map(t_data *data, char *path)
 	data->map.map = ft_calloc(data->map.line_count + 1, sizeof(char *));
 	if (!(data->map.map))
 		return ;
-	data->map.fd = open(path, O_RDONLY);
+	data->map.fd = open(path, O_RDONLY | O_NOFOLLOW);
 	if (data->map.fd < 0)
 		message_error(ERROR_INFILE, data);
 	else
