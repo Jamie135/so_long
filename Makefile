@@ -16,6 +16,7 @@ SRCS_DIR	=	./srcs/
 SRCS		=	map/map.c \
 				map/map_setup.c \
 				map/map_check.c \
+				map/path_fill.c\
 				map/path_check.c\
 				map/utils.c \
 				image/minilibx_utils.c \

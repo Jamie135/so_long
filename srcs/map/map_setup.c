@@ -29,7 +29,7 @@ void	set_map(t_data *data)
 	data->img.width = IMG_SIZE;
 }
 
-void	set_player(t_data *data)
+void	set_player_exit(t_data *data)
 {
 	int	i;
 	int	j;
@@ -44,6 +44,11 @@ void	set_player(t_data *data)
 			{
 				data->player_i = i;
 				data->player_j = j;
+			}
+			else if (data->map.map[i][j] == 'E')
+			{
+				data->exit_i = i;
+				data->exit_j = j;
 			}
 			j++;
 		}

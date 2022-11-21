@@ -13,57 +13,107 @@
 #include "../../includes/so_long.h"
 #include "../../includes/get_next_line.h"
 
-char	**malloc_copy(t_data *data)
+/*int	path_check(char **map, t_data data, int y, int x)
 {
-	char	**copy;
-	int		c;
+	map[data.exit_i][data.exit_j] == 'F';
+	if (y < 0 || x < 0
+		|| y >= (data.win_height / 48) - 1
+		|| x >= (data.win_width / 48) - 1
+		|| map[y][x] != 'F' || map[y][x] != '1')
+		return (FAILURE);
+	path_check(map, data, y, x + 1);
+	path_check(map, data, y, x - 1);
+	path_check(map, data, y + 1, x);
+	path_check(map, data, y - 1, x);
+}*/
 
-	copy = malloc(sizeof(char *) * data->win_height);
-	if (!copy)
-		return (NULL);
-	c = 0;
-	while (c <= data->win_height)
-	{
-		copy[c] = malloc(sizeof(char *) * data->win_width);
-		if (!copy[c])
-			return (NULL);
-		c++;
-	}
-	return (copy);
-}
-
-char	**map_copy(char **map, t_data *data)
+int	path_check_right_bot(char **map, t_data data)
 {
-	char	**copy;
-	int		i;
-	int		j;
+	int	y;
+	int	x;
 
-	copy = malloc_copy(data);
-	i = 0;
-	while (map[i])
+	y = data.exit_i;
+	while (y && y < (data.win_height / 48) - 1) 
 	{
-		j = 0;
-		while (map[i][j])
+		x = data.exit_j;
+		while (x && map[y][x])
 		{
-			if (map[i][j] == 'P' || map[i][j] == 'C')
-				copy[i][j] = '0';
-			else
-				copy[i][j] = data->map.map[i][j];
-			j++;
+			if (map[y][x] == '0')
+				return(FAILURE);
+			x++;
 		}
-		i++;
+		y++;
 	}
-	return (copy);
+	return (SUCCESS);
 }
 
-void	flood_fill(char **map, t_data data, int x, int y, char key)
+int	path_check_right_top(char **map, t_data data)
 {
-	if (x < 0 || y < 0 || x >= (data.win_width / 48) - 1 || y >= (data.win_height / 48) - 1
-		|| map[y][x] != key)
-		return ;
-	map[y][x] = 'F';
-	flood_fill(map, data, x, y + 1, key);
-	flood_fill(map, data, x, y - 1, key);
-	flood_fill(map, data, x + 1, y, key);
-	flood_fill(map, data, x - 1, y, key);
+	int	y;
+	int	x;
+
+	y = data.exit_i;
+	while (y && y < (data.win_height / 48) - 1) 
+	{
+		x = data.exit_j;
+		while (x && map[y][x])
+		{
+			if (map[y][x] == '0')
+				return(FAILURE);
+			x++;
+		}
+		y--;
+	}
+	return (SUCCESS);
+}
+
+int	path_check_left_bot(char **map, t_data data)
+{
+	int	y;
+	int	x;
+
+	y = data.exit_i;
+	while (y && y < (data.win_height / 48) - 1) 
+	{
+		x = data.exit_j;
+		while (x && map[y][x])
+		{
+			if (map[y][x] == '0')
+				return(FAILURE);
+			x--;
+		}
+		y++;
+	}
+	return (SUCCESS);
+}
+
+int	path_check_left_top(char **map, t_data data)
+{
+	int	y;
+	int	x;
+
+	y = data.exit_i;
+	while (y && y < (data.win_height / 48) - 1) 
+	{
+		x = data.exit_j;
+		while (x && map[y][x])
+		{
+			if (map[y][x] == '0')
+				return (FAILURE);
+			x--;
+		}
+		y--;
+	}
+	return (SUCCESS);
+}
+
+int	path_check(char **map, t_data data)
+{
+	if (path_check_left_bot(map, data) == FAILURE
+		|| path_check_left_top(map, data) == FAILURE
+		|| path_check_right_bot(map, data) == FAILURE
+		|| path_check_right_top(map, data) == FAILURE)
+		return (FAILURE);
+	else
+		return (SUCCESS);
 }

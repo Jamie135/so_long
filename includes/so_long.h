@@ -68,7 +68,7 @@
 # define ERROR_REC "The map is not a rectangle."
 # define ERROR_SIDES "Invalid walls on the map."
 # define ERROR_INFILE "Open failed."
-# define ERROR_PATH "Exit unreachable."
+# define ERROR_PATH "The exit is unreachable."
 
 typedef struct s_map
 {
@@ -107,6 +107,8 @@ typedef struct s_data
 	int		j;
 	int		player_i;
 	int		player_j;
+	int		exit_i;
+	int		exit_j;
 	int		win_height;
 	int		win_width;
 	t_img	img;
@@ -119,17 +121,23 @@ void	input_map(int row, int col, t_data *data);
 void	create_map(t_data *data, char *path);
 //	map_setup.c
 void	set_map(t_data *data);
-void	set_player(t_data *data);
+void	set_player_exit(t_data *data);
 //	map_check.c
 int		check_pec(t_data *data);
 int		check_topbot(int row, char **map);
 int		check_sides(int row_count, char **map);
 int		check_rectangle(t_data *data);
 int		check_map(t_data *data);
-//	path_check.c
+//	path_fill.c
 char	**malloc_copy(t_data *data);
 char	**map_copy(char **map, t_data *data);
-void	flood_fill(char **map, t_data data, int x, int y, char key);
+void	flood_fill(char **map, t_data data, int y, int x);
+//	path_check.c
+int		path_check_right_bot(char **map, t_data data);
+int		path_check_right_top(char **map, t_data data);
+int		path_check_left_bot(char **map, t_data data);
+int		path_check_left_top(char **map, t_data data);
+int		path_check(char **map, t_data data);
 //	minilibx_utils.c
 int		new_window(t_data *data);
 void	file_to_images(t_data *data);
