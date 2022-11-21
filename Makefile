@@ -6,7 +6,7 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/15 14:37:16 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/19 16:18:52 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS_DIR	=	./srcs/
 SRCS		=	map/map.c \
 				map/map_setup.c \
 				map/map_check.c \
+				map/path_check.c\
 				map/utils.c \
 				image/minilibx_utils.c \
 				image/render.c \

@@ -6,20 +6,64 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:16:11 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/18 15:07:43 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:36:18 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 #include "../../includes/get_next_line.h"
 
-void	fill(t_img **map, t_img size, t_data *data , char key)
+char	**malloc_copy(t_data *data)
 {
-	data->map.map[data->player_i][data->player_j] = 'F';
-	
+	char	**copy;
+	int		c;
+
+	copy = malloc(sizeof(char *) * data->win_height);
+	if (!copy)
+		return (NULL);
+	c = 0;
+	while (c <= data->win_height)
+	{
+		copy[c] = malloc(sizeof(char *) * data->win_width);
+		if (!copy[c])
+			return (NULL);
+		c++;
+	}
+	return (copy);
 }
 
-void	flood_fill(t_data *data)
+char	**map_copy(char **map, t_data *data)
 {
-	fill(data->map, '0');
+	char	**copy;
+	int		i;
+	int		j;
+
+	copy = malloc_copy(data);
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'P' || map[i][j] == 'C')
+				copy[i][j] = '0';
+			else
+				copy[i][j] = data->map.map[i][j];
+			j++;
+		}
+		i++;
+	}
+	return (copy);
+}
+
+void	flood_fill(char **map, t_data data, int x, int y, char key)
+{
+	if (x < 0 || y < 0 || x >= (data.win_width / 48) - 1 || y >= (data.win_height / 48) - 1
+		|| map[y][x] != key)
+		return ;
+	map[y][x] = 'F';
+	flood_fill(map, data, x, y + 1, key);
+	flood_fill(map, data, x, y - 1, key);
+	flood_fill(map, data, x + 1, y, key);
+	flood_fill(map, data, x - 1, y, key);
 }

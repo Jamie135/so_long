@@ -6,14 +6,14 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/16 18:13:57 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:32:27 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../includes/get_next_line.h"
 
-/*void print_map(char **map)
+void print_map(char **map)
 {
 	int i = 0;
 
@@ -28,7 +28,7 @@
 		i++;
 	}
 	printf("\n");
-}*/
+}
 
 int	main(int argc, char **argv)
 {
@@ -39,12 +39,17 @@ int	main(int argc, char **argv)
 	if (check_ber(argv[1]) == FAILURE)
 		message_error(ERROR_BER, &data);
 	create_map(&data, argv[1]);
-	//write (2, "main\n", 5);
 	set_map(&data);
-	//write (2, "main\n", 5);
 	check_map(&data);
 	set_player(&data);
-	//print_map(data.map.map);
+	//write (2, "main\n", 5);
+	printf("%d\n", data.player_i);
+	printf("%d\n", data.player_j);
+	printf("height %d\n", data.win_height / 48);
+	printf("width %d\n", data.win_width / 48);
+	print_map(map_copy(data.map.map));
+	flood_fill(map_copy(data.map.map), data, data.player_j, data.player_i, '0');
+	print_map(data.map.map);
 	new_window(&data);
 	file_to_images(&data);
 	render(&data);
