@@ -6,17 +6,18 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/19 19:32:27 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:13:35 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../includes/get_next_line.h"
 
-/*void print_map(char **map)
+void	print_map(char **map)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	if (!map[i])
 	{
 		printf("(null)\n");
@@ -28,7 +29,7 @@
 		i++;
 	}
 	printf("\n");
-}*/
+}
 
 int	main(int argc, char **argv)
 {
@@ -43,18 +44,12 @@ int	main(int argc, char **argv)
 	set_map(&data);
 	check_map(&data);
 	set_player_exit(&data);
-	//write (2, "main\n", 5);
-	/*printf("%d\n", data.player_i);
-	printf("%d\n", data.player_j);
-	printf("height %d\n", data.win_height / 48);
-	printf("width %d\n", data.win_width / 48);
-	copy = map_copy(data.map.map);
+	copy = map_copy(data.map.map, &data);
 	//print_map(copy);
 	flood_fill(copy, data, data.player_i, data.player_j);
-	print_map(copy);
+	//print_map(copy);
 	if (path_check(copy, data) == FAILURE)
-		message_error(ERROR_PATH, &data);*/
-	//write (2, "main\n", 5);
+		message_error(ERROR_PATH, &data);
 	new_window(&data);
 	file_to_images(&data);
 	render(&data);

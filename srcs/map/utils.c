@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:48:18 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/15 14:55:37 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:02:42 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ int	check_ber(char *path)
 			return (FAILURE);
 		else
 			return (SUCCESS);
-	}
-}
-
-void	free_tabs(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	if (tab)
-	{
-		while (tab[i])
-		{
-			if (tab[i])
-			{
-				free(tab[i]);
-				tab[i] = NULL;
-			}
-			i++;
-		}
-		free(tab);
-		tab = NULL;
 	}
 }
 
