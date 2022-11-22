@@ -25,7 +25,10 @@ int	path_check_right_bot(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
+			{
+				free_tabs(map);
 				return (FAILURE);
+			}
 			x++;
 		}
 		y++;
@@ -45,7 +48,10 @@ int	path_check_right_top(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
+			{
+				free_tabs(map);
 				return (FAILURE);
+			}
 			x++;
 		}
 		y--;
@@ -65,7 +71,10 @@ int	path_check_left_bot(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
+			{
+				free_tabs(map);
 				return (FAILURE);
+			}
 			x--;
 		}
 		y++;
@@ -85,7 +94,10 @@ int	path_check_left_top(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
+			{
+				free_tabs(map);
 				return (FAILURE);
+			}
 			x--;
 		}
 		y--;
