@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/23 14:05:00 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:29:34 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,6 @@
 # define SUCCESS 0
 
 # define IMG_SIZE 48
-# define WINDOW_WIDTH 600
-# define WINDOW_HEIGHT 300
-
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0xFF00
-# define WHITE_PIXEL 0xFFFFFF
 
 # define ARROW_UP 65362
 # define ARROW_DOWN 65364
