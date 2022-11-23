@@ -6,14 +6,14 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/23 12:50:39 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:04:05 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../includes/get_next_line.h"
 
-void	print_map(char **map)
+/*void	print_map(char **map)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ void	print_map(char **map)
 		i++;
 	}
 	printf("\n");
-}
+}*/
 
 int	main(int argc, char **argv)
 {
