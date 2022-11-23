@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/23 13:57:39 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:06:59 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	char	**copy;
 
 	if (argc != 2)
-		return (0);
+		message_error(ERROR_ARG, &data);
 	if (check_ber(argv[1]) == FAILURE)
 		message_error(ERROR_BER, &data);
 	create_map(&data, argv[1]);

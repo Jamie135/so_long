@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/23 13:35:34 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:05:00 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define GRASS "images/set2/grass.xpm"
 # define ITEM "images/set2/item.xpm"
 
+# define ERROR_ARG "Invalid number of argument."
 # define ERROR_BER "Invalid .ber file."
 # define ERROR_FAKE ".ber file is empty."
 # define ERROR_OTHER "Invalid characters on the map."
