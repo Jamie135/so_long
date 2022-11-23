@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:16:11 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/22 17:05:49 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:51:23 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	path_check_right_bot(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
-			{
-				free_tabs(map);
 				return (FAILURE);
-			}
 			x++;
 		}
 		y++;
@@ -48,10 +45,7 @@ int	path_check_right_top(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
-			{
-				free_tabs(map);
 				return (FAILURE);
-			}
 			x++;
 		}
 		y--;
@@ -71,10 +65,7 @@ int	path_check_left_bot(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
-			{
-				free_tabs(map);
 				return (FAILURE);
-			}
 			x--;
 		}
 		y++;
@@ -94,10 +85,7 @@ int	path_check_left_top(char **map, t_data data)
 		while (x && map[y][x])
 		{
 			if (map[y][x] == 'C')
-			{
-				free_tabs(map);
 				return (FAILURE);
-			}
 			x--;
 		}
 		y--;
@@ -111,12 +99,21 @@ int	path_check(char **map, t_data data)
 		|| path_check_left_top(map, data) == FAILURE
 		|| path_check_right_bot(map, data) == FAILURE
 		|| path_check_right_top(map, data) == FAILURE)
+	{
+		free_tabs(map);
 		return (FAILURE);
+	}
 	else if (map[data.exit_i][data.exit_j + 1] == 'F'
 		|| map[data.exit_i][data.exit_j - 1] == 'F'
 		|| map[data.exit_i + 1][data.exit_j] == 'F'
 		|| map[data.exit_i - 1][data.exit_j] == 'F')
+	{
+		free_tabs(map);
 		return (SUCCESS);
+	}
 	else
+	{
+		free_tabs(map);
 		return (FAILURE);
+	}
 }

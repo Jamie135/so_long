@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 22:27:05 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/22 16:44:27 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:44:27 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ char	**malloc_copy(t_data *data)
 	char	**copy;
 	int		c;
 
-	copy = malloc(sizeof(char *) * data->win_height);
+	copy = malloc(sizeof(char *) * ((data->win_height / 48) + 1));
 	if (!copy)
 		return (NULL);
 	c = 0;
-	while (c <= data->win_height)
+	while (c < data->win_height / 48)
 	{
-		copy[c] = malloc(sizeof(char *) * data->win_width);
+		copy[c] = malloc(sizeof(char *) * (data->win_width / 48 + 1));
 		if (!copy[c])
 			return (NULL);
-		copy[c][data->win_width] = '\0';
+		copy[c][data->win_width / 48] = '\0';
 		c++;
 	}
 	copy[c] = NULL;

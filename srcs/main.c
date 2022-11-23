@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/22 17:13:35 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:50:39 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int	main(int argc, char **argv)
 	check_map(&data);
 	set_player_exit(&data);
 	copy = map_copy(data.map.map, &data);
-	//print_map(copy);
 	flood_fill(copy, data, data.player_i, data.player_j);
-	//print_map(copy);
 	if (path_check(copy, data) == FAILURE)
 		message_error(ERROR_PATH, &data);
 	new_window(&data);

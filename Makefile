@@ -6,7 +6,7 @@
 #    By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 12:22:42 by pbureera          #+#    #+#              #
-#    Updated: 2022/11/23 12:05:04 by pbureera         ###   ########.fr        #
+#    Updated: 2022/11/23 12:51:53 by pbureera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRCS		=	map/map.c \
 				map/path_fill.c\
 				map/path_check.c\
 				map/utils.c \
-				map/free.c \
 				image/minilibx_utils.c \
 				image/render.c \
 				event/handler.c \
