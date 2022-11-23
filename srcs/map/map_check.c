@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:53:54 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/22 17:06:16 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:51:31 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ int	check_map(t_data *data)
 	}
 	if (check_pec(data) == FAILURE)
 		message_error(ERROR_CHAR, data);
-	if (data->map.count_p != 1)
-		message_error(ERROR_PLAYER, data);
+	if (data->map.count_p != 1 || data->map.count_e != 1)
+		message_error(ERROR_PLAYER_EXIT, data);
 	if (check_rectangle(data) == FAILURE)
 		message_error(ERROR_REC, data);
 	if (check_sides(data->map.line_count - 1, data->map.map) == FAILURE)

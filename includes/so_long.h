@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:10:31 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/19 19:36:32 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:35:34 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@
 # define ERROR_FAKE ".ber file is empty."
 # define ERROR_OTHER "Invalid characters on the map."
 # define ERROR_CHAR "Some characters are missing: 0, 1, P, E, C."
-# define ERROR_PLAYER "There must be one player."
-# define ERROR_PLAYERB "There must be only one player on each side."
+# define ERROR_PLAYER_EXIT "There must be one player and one exit."
 # define ERROR_REC "The map is not a rectangle."
 # define ERROR_SIDES "Invalid walls on the map."
 # define ERROR_INFILE "Open failed."
