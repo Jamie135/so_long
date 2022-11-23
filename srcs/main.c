@@ -6,7 +6,7 @@
 /*   By: pbureera <pbureera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 00:20:50 by pbureera          #+#    #+#             */
-/*   Updated: 2022/11/23 13:28:56 by pbureera         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:57:39 by pbureera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 		message_error(ERROR_BER, &data);
 	create_map(&data, argv[1]);
 	set_map(&data);
-	printf("height: %d\n", data.win_height);
 	check_map(&data);
 	set_player_exit(&data);
 	copy = map_copy(data.map.map, &data);
